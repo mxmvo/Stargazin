@@ -1,0 +1,429 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A5A4D0501E96FAAD002B5C59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A4D04F1E96FAAD002B5C59 /* AppDelegate.swift */; };
+		A5A4D0521E96FAAD002B5C59 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A4D0511E96FAAD002B5C59 /* ViewController.swift */; };
+		A5A4D0551E96FAAD002B5C59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5A4D0531E96FAAD002B5C59 /* Main.storyboard */; };
+		A5A4D0571E96FAAD002B5C59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5A4D0561E96FAAD002B5C59 /* Assets.xcassets */; };
+		A5A4D05A1E96FAAD002B5C59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5A4D0581E96FAAD002B5C59 /* LaunchScreen.storyboard */; };
+		A5A4D0651E96FAAD002B5C59 /* StarGazingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A4D0641E96FAAD002B5C59 /* StarGazingTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A5A4D0611E96FAAD002B5C59 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A5A4D0441E96FAAD002B5C59 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A5A4D04B1E96FAAD002B5C59;
+			remoteInfo = StarGazing;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A5A4D04C1E96FAAD002B5C59 /* StarGazing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarGazing.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5A4D04F1E96FAAD002B5C59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A5A4D0511E96FAAD002B5C59 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A5A4D0541E96FAAD002B5C59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A5A4D0561E96FAAD002B5C59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A5A4D0591E96FAAD002B5C59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A5A4D05B1E96FAAD002B5C59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5A4D0601E96FAAD002B5C59 /* StarGazingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarGazingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5A4D0641E96FAAD002B5C59 /* StarGazingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarGazingTests.swift; sourceTree = "<group>"; };
+		A5A4D0661E96FAAD002B5C59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A5A4D0491E96FAAD002B5C59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5A4D05D1E96FAAD002B5C59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A5A4D0431E96FAAD002B5C59 = {
+			isa = PBXGroup;
+			children = (
+				A5A4D04E1E96FAAD002B5C59 /* StarGazing */,
+				A5A4D0631E96FAAD002B5C59 /* StarGazingTests */,
+				A5A4D04D1E96FAAD002B5C59 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A5A4D04D1E96FAAD002B5C59 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A5A4D04C1E96FAAD002B5C59 /* StarGazing.app */,
+				A5A4D0601E96FAAD002B5C59 /* StarGazingTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A5A4D04E1E96FAAD002B5C59 /* StarGazing */ = {
+			isa = PBXGroup;
+			children = (
+				A5A4D04F1E96FAAD002B5C59 /* AppDelegate.swift */,
+				A5A4D0511E96FAAD002B5C59 /* ViewController.swift */,
+				A5A4D0531E96FAAD002B5C59 /* Main.storyboard */,
+				A5A4D0561E96FAAD002B5C59 /* Assets.xcassets */,
+				A5A4D0581E96FAAD002B5C59 /* LaunchScreen.storyboard */,
+				A5A4D05B1E96FAAD002B5C59 /* Info.plist */,
+			);
+			path = StarGazing;
+			sourceTree = "<group>";
+		};
+		A5A4D0631E96FAAD002B5C59 /* StarGazingTests */ = {
+			isa = PBXGroup;
+			children = (
+				A5A4D0641E96FAAD002B5C59 /* StarGazingTests.swift */,
+				A5A4D0661E96FAAD002B5C59 /* Info.plist */,
+			);
+			path = StarGazingTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A5A4D04B1E96FAAD002B5C59 /* StarGazing */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5A4D0691E96FAAD002B5C59 /* Build configuration list for PBXNativeTarget "StarGazing" */;
+			buildPhases = (
+				A5A4D0481E96FAAD002B5C59 /* Sources */,
+				A5A4D0491E96FAAD002B5C59 /* Frameworks */,
+				A5A4D04A1E96FAAD002B5C59 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StarGazing;
+			productName = StarGazing;
+			productReference = A5A4D04C1E96FAAD002B5C59 /* StarGazing.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A5A4D05F1E96FAAD002B5C59 /* StarGazingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5A4D06C1E96FAAD002B5C59 /* Build configuration list for PBXNativeTarget "StarGazingTests" */;
+			buildPhases = (
+				A5A4D05C1E96FAAD002B5C59 /* Sources */,
+				A5A4D05D1E96FAAD002B5C59 /* Frameworks */,
+				A5A4D05E1E96FAAD002B5C59 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A5A4D0621E96FAAD002B5C59 /* PBXTargetDependency */,
+			);
+			name = StarGazingTests;
+			productName = StarGazingTests;
+			productReference = A5A4D0601E96FAAD002B5C59 /* StarGazingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A5A4D0441E96FAAD002B5C59 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Maxim Oldenbeek";
+				TargetAttributes = {
+					A5A4D04B1E96FAAD002B5C59 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = G3MPWH8TX7;
+						ProvisioningStyle = Automatic;
+					};
+					A5A4D05F1E96FAAD002B5C59 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = G3MPWH8TX7;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A5A4D04B1E96FAAD002B5C59;
+					};
+				};
+			};
+			buildConfigurationList = A5A4D0471E96FAAD002B5C59 /* Build configuration list for PBXProject "StarGazing" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A5A4D0431E96FAAD002B5C59;
+			productRefGroup = A5A4D04D1E96FAAD002B5C59 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A5A4D04B1E96FAAD002B5C59 /* StarGazing */,
+				A5A4D05F1E96FAAD002B5C59 /* StarGazingTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A5A4D04A1E96FAAD002B5C59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5A4D05A1E96FAAD002B5C59 /* LaunchScreen.storyboard in Resources */,
+				A5A4D0571E96FAAD002B5C59 /* Assets.xcassets in Resources */,
+				A5A4D0551E96FAAD002B5C59 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5A4D05E1E96FAAD002B5C59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A5A4D0481E96FAAD002B5C59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5A4D0521E96FAAD002B5C59 /* ViewController.swift in Sources */,
+				A5A4D0501E96FAAD002B5C59 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5A4D05C1E96FAAD002B5C59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5A4D0651E96FAAD002B5C59 /* StarGazingTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A5A4D0621E96FAAD002B5C59 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A5A4D04B1E96FAAD002B5C59 /* StarGazing */;
+			targetProxy = A5A4D0611E96FAAD002B5C59 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A5A4D0531E96FAAD002B5C59 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A5A4D0541E96FAAD002B5C59 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A5A4D0581E96FAAD002B5C59 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A5A4D0591E96FAAD002B5C59 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A5A4D0671E96FAAD002B5C59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A5A4D0681E96FAAD002B5C59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A5A4D06A1E96FAAD002B5C59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = G3MPWH8TX7;
+				INFOPLIST_FILE = StarGazing/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tutorial.StarGazing;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		A5A4D06B1E96FAAD002B5C59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = G3MPWH8TX7;
+				INFOPLIST_FILE = StarGazing/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tutorial.StarGazing;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		A5A4D06D1E96FAAD002B5C59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = G3MPWH8TX7;
+				INFOPLIST_FILE = StarGazingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tutorial.StarGazingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StarGazing.app/StarGazing";
+			};
+			name = Debug;
+		};
+		A5A4D06E1E96FAAD002B5C59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = G3MPWH8TX7;
+				INFOPLIST_FILE = StarGazingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tutorial.StarGazingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StarGazing.app/StarGazing";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A5A4D0471E96FAAD002B5C59 /* Build configuration list for PBXProject "StarGazing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5A4D0671E96FAAD002B5C59 /* Debug */,
+				A5A4D0681E96FAAD002B5C59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A5A4D0691E96FAAD002B5C59 /* Build configuration list for PBXNativeTarget "StarGazing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5A4D06A1E96FAAD002B5C59 /* Debug */,
+				A5A4D06B1E96FAAD002B5C59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A5A4D06C1E96FAAD002B5C59 /* Build configuration list for PBXNativeTarget "StarGazingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5A4D06D1E96FAAD002B5C59 /* Debug */,
+				A5A4D06E1E96FAAD002B5C59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A5A4D0441E96FAAD002B5C59 /* Project object */;
+}
