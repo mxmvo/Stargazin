@@ -13,11 +13,11 @@ import GLKit
 class ViewController: UIViewController, MTKViewDelegate {
 
   var device: MTLDevice = MTLCreateSystemDefaultDevice()!
-  var starSky: Renderer!
-  var coord: Renderer!
+  var renderer: Renderer!
+  
   let panSensivity:Float = 1.0
   var lastPanLocation: CGPoint!
-  var angleProjectionMatrix: Float = 85.0
+  var angleProjectionMatrix: Float = 40.0
   var projectionMatrix: GLKMatrix4 = GLKMatrix4Identity
   var worldModelMatrix: GLKMatrix4 = GLKMatrix4Identity
   var worldModelMatrix1: GLKMatrix4 = GLKMatrix4Identity
@@ -26,13 +26,16 @@ class ViewController: UIViewController, MTKViewDelegate {
   var ratio: Float = 0.0
   var commandQueue: MTLCommandQueue? = nil
   
+  var constel: object
+  var objects: [object] = []
+  
+  
+  
   override func viewDidLoad() {
     self.ratio = Float(self.view.bounds.size.width / self.view.bounds.size.height)
 
     projectionMatrix = GLKMatrix4MakePerspective(angleProjectionMatrix/360.0*2*Float.pi, ratio, 0.01, 100.0)
     worldModelMatrix = GLKMatrix4MakeTranslation(0.0, 0.0, 0.0)
-    worldModelMatrix1 = GLKMatrix4MakeTranslation(0.0, 0.0, 0.0)
-
     
     let metalView = self.view as! MTKView
     metalView.clearColor = MTLClearColorMake(0, 0, 0, 0)
@@ -43,12 +46,25 @@ class ViewController: UIViewController, MTKViewDelegate {
     
     commandQueue = device.makeCommandQueue()
     
-    starSky = Renderer(mtkView: metalView, textureName: "NasaSky", modelName: "StarSkyCelestial")
-    //coord = Renderer(mtkView: metalView, textureName: "NasaSkyGrid", modelName: "StarSkyCelestial")
-    setupGestures()
+    // The default library contains all of the shader functions that were compiled into our app bundle
+    let library = device.newDefaultLibrary()!
     
+    // Retrieve the functions that will comprise our pipeline
+    let fragmentFunction = library.makeFunction(name: "basic_fragment")
+    let fragmentFunctionDis = library.makeFunction(name: "basic_fragment_dis")
+    let vertexFunction = library.makeFunction(name: "basic_vertex")
+
+    
+    
+    renderer = Renderer(mtkView: metalView)
+    let starSky = object(name: "starSky", device: device, view: metalView, textureName: "NasaSky", modelName: "StarSkyCelestial", fragmentFunction: fragmentFunction!, vertexFunction: vertexFunction!)
+    let coord = object(name: "coord" , device: device, view: metalView, textureName: "NasaSkyGrid", modelName: "StarSkyCelestial", fragmentFunction: fragmentFunctionDis!, vertexFunction: vertexFunction!)
+    constel = object(name: "constel", device: device, view: metalView, textureName: "NasaSkyConstellations", modelName: "StarSkyCelestial", fragmentFunction: fragmentFunctionDis!, vertexFunction: vertexFunction! )
+    
+    objects = [starSky,coord,constel]
+    
+    setupGestures()
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
   }
 
   override func didReceiveMemoryWarning() {
@@ -58,7 +74,6 @@ class ViewController: UIViewController, MTKViewDelegate {
 
 
   //MARK: - Gesture related
-  // 1
   func setupGestures() {
     let pan = UIPanGestureRecognizer(target: self, action: #selector(self.pan(_:)))
     let pinch = UIPinchGestureRecognizer(target: self, action: #selector(self.pinch(_:)))
@@ -66,15 +81,11 @@ class ViewController: UIViewController, MTKViewDelegate {
     self.view.addGestureRecognizer(pinch)
   }
   
-  // 2
   func pan(_ panGesture: UIPanGestureRecognizer) {
     if panGesture.state == UIGestureRecognizerState.changed {
       let pointInView = panGesture.location(in: self.view)
-      // 3
       let xDelta = Float((lastPanLocation.x - pointInView.x)/self.view.bounds.width) * panSensivity
       let yDelta = Float((lastPanLocation.y - pointInView.y)/self.view.bounds.height) * panSensivity
-      // 4
-      //objectToDraw.gestureRotationMatrix = GLKMatrix4Multiply(modelMatrix(xDelta: xDelta, yDelta: yDelta), objectToDraw.gestureRotationMatrix)
       
       gestureRotationMatrix = GLKMatrix4Multiply(modelMatrix(xDelta: xDelta, yDelta: yDelta), gestureRotationMatrix)
       
@@ -87,9 +98,9 @@ class ViewController: UIViewController, MTKViewDelegate {
   func pinch(_ panGesture: UIPinchGestureRecognizer) {
     if panGesture.state == UIGestureRecognizerState.changed {
       let scale = panGesture.scale
-      if 30 < angleProjectionMatrix && (Float(scale)-1) > 0 {
+      if 10 < angleProjectionMatrix && (Float(scale)-1) > 0 {
         angleProjectionMatrix -= (Float(scale)-1)/2
-      } else if angleProjectionMatrix < 120 && (Float(scale)-1) < 0 {
+      } else if angleProjectionMatrix < 70 && (Float(scale)-1) < 0 {
         angleProjectionMatrix -= (Float(scale)-1)*2
       }
       projectionMatrix = GLKMatrix4MakePerspective(angleProjectionMatrix/360.0*2*Float.pi, ratio, 0.01, 100.0)
@@ -104,18 +115,23 @@ class ViewController: UIViewController, MTKViewDelegate {
   
   
   func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
-    // respond to resize
+    self.ratio = Float(self.view.bounds.size.width / self.view.bounds.size.height)
   }
   
   @objc(drawInMTKView:)
   func draw(in metalView: MTKView)
   {
-    
-    starSky.render(metalView, commandQueue: commandQueue!, projectionMatrix: projectionMatrix, worldModelMatrix: GLKMatrix4Multiply(worldModelMatrix, gestureRotationMatrix), worldModelMatrix1: worldModelMatrix1)
-    //coord.render(metalView, commandQueue: commandQueue!, projectionMatrix: projectionMatrix, worldModelMatrix: worldModelMatrix1)
-
+    var objectRender = [object]()
+    for object in objects{
+      if object.show == 1 {
+        objectRender.append(object)
+      }
+    }
+    renderer.render(metalView, commandQueue: commandQueue!, projectionMatrix: projectionMatrix, worldModelMatrix: gestureRotationMatrix, objects: objectRender)
   }
-
-  
+  @IBAction func constellations(_ sender: UIButton) {
+    constel.show = (constel.show + 1) % 2
+    
+  }
 }
 

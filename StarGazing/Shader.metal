@@ -47,12 +47,17 @@ vertex VertexOut basic_vertex(
 // 3
 fragment float4 basic_fragment(VertexOut interpolated [[stage_in]],
                                texture2d<float>  tex2D     [[ texture(0) ]],
-                               
-                               // 4
                                sampler           sampler2D [[ sampler(0) ]]) {
   // 5
   float4 color = tex2D.sample(sampler2D, interpolated.texCoord);
+  return color;
+}
+fragment float4 basic_fragment_dis(VertexOut interpolated [[stage_in]],
+                               texture2d<float>  tex2D     [[ texture(0) ]],
+                               sampler           sampler2D [[ sampler(0) ]]) {
+  // 5
+  float4 color = tex2D.sample(sampler2D, interpolated.texCoord)/2;
   if (color.r < 0.05)
-      discard_fragment();
+    discard_fragment();
   return color;
 }

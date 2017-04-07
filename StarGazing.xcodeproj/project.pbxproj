@@ -17,6 +17,8 @@
 		A5A4D0701E96FAEB002B5C59 /* Shader.metal in Sources */ = {isa = PBXBuildFile; fileRef = A5A4D06F1E96FAEB002B5C59 /* Shader.metal */; };
 		A5A4D0721E96FB42002B5C59 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A4D0711E96FB42002B5C59 /* Renderer.swift */; };
 		A5A4D0741E96FD11002B5C59 /* NasaSky.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A5A4D0731E96FD11002B5C59 /* NasaSky.jpg */; };
+		A5EBE15D1E97F82F001C9E96 /* NasaSkyConstellations.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A5EBE15C1E97F82F001C9E96 /* NasaSkyConstellations.jpg */; };
+		A5EBE15F1E980C84001C9E96 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EBE15E1E980C84001C9E96 /* Object.swift */; };
 		A5EC542B1E97798100221B1D /* BufferProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC542A1E97798100221B1D /* BufferProvider.swift */; };
 		A5EC542D1E97A72900221B1D /* StarSkyCelestial.arr in Resources */ = {isa = PBXBuildFile; fileRef = A5EC542C1E97A72900221B1D /* StarSkyCelestial.arr */; };
 		A5EC542F1E97BBA400221B1D /* NasaSkyGrid.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A5EC542E1E97BBA400221B1D /* NasaSkyGrid.jpg */; };
@@ -47,6 +49,8 @@
 		A5A4D06F1E96FAEB002B5C59 /* Shader.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shader.metal; sourceTree = "<group>"; };
 		A5A4D0711E96FB42002B5C59 /* Renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		A5A4D0731E96FD11002B5C59 /* NasaSky.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NasaSky.jpg; sourceTree = "<group>"; };
+		A5EBE15C1E97F82F001C9E96 /* NasaSkyConstellations.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NasaSkyConstellations.jpg; sourceTree = "<group>"; };
+		A5EBE15E1E980C84001C9E96 /* Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
 		A5EC542A1E97798100221B1D /* BufferProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BufferProvider.swift; sourceTree = "<group>"; };
 		A5EC542C1E97A72900221B1D /* StarSkyCelestial.arr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = StarSkyCelestial.arr; path = ../StarSkyCelestial.arr; sourceTree = "<group>"; };
 		A5EC542E1E97BBA400221B1D /* NasaSkyGrid.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NasaSkyGrid.jpg; sourceTree = "<group>"; };
@@ -93,11 +97,13 @@
 			children = (
 				A5EC542E1E97BBA400221B1D /* NasaSkyGrid.jpg */,
 				A5A4D0731E96FD11002B5C59 /* NasaSky.jpg */,
+				A5EBE15C1E97F82F001C9E96 /* NasaSkyConstellations.jpg */,
 				A5EC542C1E97A72900221B1D /* StarSkyCelestial.arr */,
 				A59AF5631E97E5DF00212ABD /* StarSkySpherical.arr */,
 				A5A4D04F1E96FAAD002B5C59 /* AppDelegate.swift */,
 				A5A4D0511E96FAAD002B5C59 /* ViewController.swift */,
 				A5A4D0711E96FB42002B5C59 /* Renderer.swift */,
+				A5EBE15E1E980C84001C9E96 /* Object.swift */,
 				A5A4D0531E96FAAD002B5C59 /* Main.storyboard */,
 				A5A4D0561E96FAAD002B5C59 /* Assets.xcassets */,
 				A5A4D0581E96FAAD002B5C59 /* LaunchScreen.storyboard */,
@@ -206,6 +212,7 @@
 				A5EC542D1E97A72900221B1D /* StarSkyCelestial.arr in Resources */,
 				A5A4D05A1E96FAAD002B5C59 /* LaunchScreen.storyboard in Resources */,
 				A5A4D0571E96FAAD002B5C59 /* Assets.xcassets in Resources */,
+				A5EBE15D1E97F82F001C9E96 /* NasaSkyConstellations.jpg in Resources */,
 				A5EC542F1E97BBA400221B1D /* NasaSkyGrid.jpg in Resources */,
 				A59AF5641E97E5DF00212ABD /* StarSkySpherical.arr in Resources */,
 				A5A4D0551E96FAAD002B5C59 /* Main.storyboard in Resources */,
@@ -230,6 +237,7 @@
 				A5A4D0721E96FB42002B5C59 /* Renderer.swift in Sources */,
 				A5A4D0701E96FAEB002B5C59 /* Shader.metal in Sources */,
 				A5A4D0521E96FAAD002B5C59 /* ViewController.swift in Sources */,
+				A5EBE15F1E980C84001C9E96 /* Object.swift in Sources */,
 				A5A4D0501E96FAAD002B5C59 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
