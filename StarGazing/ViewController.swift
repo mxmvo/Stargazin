@@ -9,8 +9,10 @@
 import UIKit
 import MetalKit
 import GLKit
+import CoreLocation
+import CoreMotion
 
-class ViewController: UIViewController, MTKViewDelegate {
+class ViewController: UIViewController, MTKViewDelegate, CLLocationManagerDelegate {
 
   var device: MTLDevice = MTLCreateSystemDefaultDevice()!
   var renderer: Renderer!
@@ -26,8 +28,15 @@ class ViewController: UIViewController, MTKViewDelegate {
   var ratio: Float = 0.0
   var commandQueue: MTLCommandQueue? = nil
   
-  var constel: object
+  var constel: object!
   var objects: [object] = []
+  
+  var compassManager: CLLocationManager!
+  var motionManager: CMMotionManager!
+  var northPointingMatrix: GLKMatrix4 = GLKMatrix4MakeXRotation(-0.5*Float.pi)
+  var levelingMatrix: GLKMatrix4 = GLKMatrix4Identity
+
+
   
   
   
@@ -61,9 +70,23 @@ class ViewController: UIViewController, MTKViewDelegate {
     let coord = object(name: "coord" , device: device, view: metalView, textureName: "NasaSkyGrid", modelName: "StarSkyCelestial", fragmentFunction: fragmentFunctionDis!, vertexFunction: vertexFunction!)
     constel = object(name: "constel", device: device, view: metalView, textureName: "NasaSkyConstellations", modelName: "StarSkyCelestial", fragmentFunction: fragmentFunctionDis!, vertexFunction: vertexFunction! )
     
-    objects = [starSky,coord,constel]
+    objects = [starSky, coord, constel]
     
     setupGestures()
+    
+    compassManager = CLLocationManager()
+    motionManager = CMMotionManager()
+    motionManager.startDeviceMotionUpdates(using: CMAttitudeReferenceFrame.xTrueNorthZVertical)
+    motionManager.startMagnetometerUpdates()
+    
+
+    
+    if (CLLocationManager.headingAvailable()) {
+      compassManager.headingFilter = 1
+      compassManager.startUpdatingHeading()
+      compassManager.delegate = self
+    }
+    
     super.viewDidLoad()
   }
 
@@ -114,6 +137,11 @@ class ViewController: UIViewController, MTKViewDelegate {
   }
   
   
+  func locationManager(_ manager: CLLocationManager, didUpdateHeading heading: CLHeading) {
+    //northPointingMatrix = GLKMatrix4MakeYRotation(Float(heading.trueHeading / 360.0 * 2.0 * Double.pi))
+  }
+  
+  
   func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
     self.ratio = Float(self.view.bounds.size.width / self.view.bounds.size.height)
   }
@@ -127,11 +155,65 @@ class ViewController: UIViewController, MTKViewDelegate {
         objectRender.append(object)
       }
     }
-    renderer.render(metalView, commandQueue: commandQueue!, projectionMatrix: projectionMatrix, worldModelMatrix: gestureRotationMatrix, objects: objectRender)
+    
+    let deviceMotionData = self.motionManager.deviceMotion?.gravity
+    let magneticData = self.motionManager.deviceMotion?.magneticField
+
+    if deviceMotionData != nil && magneticData != nil && compassManager.heading != nil{
+
+      //levelingMatrix = makeLevelingMatrix(gravity: deviceMotionData!)
+      let gravity = gravityVector(gravity: deviceMotionData!)
+      let north = northVectorDeviceMotion(gravity: gravity, heading: magneticData!)
+      print(north.v)
+      
+      levelingMatrix = makeSkyRotationMatrix(x: GLKVector4CrossProduct(gravity, north), y: gravity, z: north)
+      
+      print(compassManager.heading!.trueHeading)
+    }
+    let skyRotationMatrix = GLKMatrix4Multiply( levelingMatrix , northPointingMatrix)
+
+    //renderer.render(metalView, commandQueue: commandQueue!, projectionMatrix: projectionMatrix, worldModelMatrix: gestureRotationMatrix, objects: objectRender)
+    renderer.render(metalView, commandQueue: commandQueue!, projectionMatrix: projectionMatrix, worldModelMatrix: skyRotationMatrix, objects: objectRender)
   }
+  
   @IBAction func constellations(_ sender: UIButton) {
     constel.show = (constel.show + 1) % 2
     
   }
+  
+  func makeLevelingMatrix(gravity: CMAcceleration) -> GLKMatrix4 {
+
+    let rotX = atan2(gravity.z, gravity.y)
+    let rotZ = atan2(gravity.x, gravity.y)
+    
+    let rotXMatrix = GLKMatrix4MakeXRotation(Float(rotX))
+    let rotZMatrix = GLKMatrix4MakeZRotation(Float(rotZ))
+    return GLKMatrix4Multiply(rotXMatrix, rotZMatrix)
+
+  }
+  func gravityVector(gravity: CMAcceleration) -> GLKVector4 {
+    return GLKVector4Make(Float(gravity.x), Float(gravity.y), Float(gravity.z), 0)
+  }
+  
+  func northVector(gravity: GLKVector4, heading: CLHeading) -> GLKVector4 {
+    let magn = GLKVector4Make(Float(heading.x), Float(heading.y), Float(heading.z), 0)
+    
+    let proj = GLKVector4Project(magn, gravity)
+    
+    return GLKVector4Normalize(GLKVector4Subtract(magn, proj))
+  }
+  
+  func northVectorDeviceMotion(gravity: GLKVector4, heading: CMCalibratedMagneticField) -> GLKVector4 {
+    let magn = GLKVector4Make(Float(heading.field.x), Float(heading.field.y), Float(heading.field.z), 0)
+    
+    let proj = GLKVector4Project(magn, gravity)
+    
+    return GLKVector4Normalize(GLKVector4Subtract(magn, proj))
+  }
+  
+  func makeSkyRotationMatrix(x: GLKVector4, y: GLKVector4, z: GLKVector4) -> GLKMatrix4 {
+    return GLKMatrix4MakeWithColumns(x, y, z, GLKVector4Make(0.0, 0.0, 0.0, 1.0))
+  }
+  
 }
 
