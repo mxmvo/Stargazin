@@ -59,6 +59,7 @@ class Renderer : NSObject
     for object in objects{
       
       if let renderPassDescriptor = renderPassDescriptor {
+        // If drawing the first object clear the screen. Otherwise previous frames stay put
         if i == 0 {
           renderPassDescriptor.colorAttachments[0].loadAction = MTLLoadAction.clear
         } else {

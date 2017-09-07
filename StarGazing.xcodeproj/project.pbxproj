@@ -22,6 +22,7 @@
 		A5EC542B1E97798100221B1D /* BufferProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC542A1E97798100221B1D /* BufferProvider.swift */; };
 		A5EC542D1E97A72900221B1D /* StarSkyCelestial.arr in Resources */ = {isa = PBXBuildFile; fileRef = A5EC542C1E97A72900221B1D /* StarSkyCelestial.arr */; };
 		A5EC542F1E97BBA400221B1D /* NasaSkyGrid.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A5EC542E1E97BBA400221B1D /* NasaSkyGrid.jpg */; };
+		A5F534501EACB5D3009F73BC /* constellation_boundaries.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A5F5344F1EACB5D3009F73BC /* constellation_boundaries.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		A5EC542A1E97798100221B1D /* BufferProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BufferProvider.swift; sourceTree = "<group>"; };
 		A5EC542C1E97A72900221B1D /* StarSkyCelestial.arr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = StarSkyCelestial.arr; path = ../StarSkyCelestial.arr; sourceTree = "<group>"; };
 		A5EC542E1E97BBA400221B1D /* NasaSkyGrid.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NasaSkyGrid.jpg; sourceTree = "<group>"; };
+		A5F5344F1EACB5D3009F73BC /* constellation_boundaries.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = constellation_boundaries.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 		A5A4D04E1E96FAAD002B5C59 /* StarGazing */ = {
 			isa = PBXGroup;
 			children = (
+				A5F5344F1EACB5D3009F73BC /* constellation_boundaries.jpg */,
 				A5EC542E1E97BBA400221B1D /* NasaSkyGrid.jpg */,
 				A5A4D0731E96FD11002B5C59 /* NasaSky.jpg */,
 				A5EBE15C1E97F82F001C9E96 /* NasaSkyConstellations.jpg */,
@@ -208,6 +211,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5F534501EACB5D3009F73BC /* constellation_boundaries.jpg in Resources */,
 				A5A4D0741E96FD11002B5C59 /* NasaSky.jpg in Resources */,
 				A5EC542D1E97A72900221B1D /* StarSkyCelestial.arr in Resources */,
 				A5A4D05A1E96FAAD002B5C59 /* LaunchScreen.storyboard in Resources */,

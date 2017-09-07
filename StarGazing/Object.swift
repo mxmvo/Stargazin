@@ -27,7 +27,7 @@ class object {
     model = try object.buildArr(arrName: modelName)
     pipeLine = try object.buildRenderPipelineWithDevice(device, view: view, fragmentFunction: fragmentFunction, vertexFunction: vertexFunction)
     } catch {
-      fatalError("Initializing failes")
+      fatalError("Initializing failed")
     }
     vertexBuffer = device.makeBuffer(bytes: model, length: model.count * MemoryLayout<Float>.size, options: MTLResourceOptions())
     
